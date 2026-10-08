@@ -38,7 +38,7 @@ canvas {
   left: 16px;
   right: 16px;
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -173,6 +173,24 @@ canvas {
   height: 100%;
 }
 
+.hud-button {
+  pointer-events: auto;
+  min-width: 100px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  background: rgba(50, 130, 200, 0.8);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hud-button:hover {
+  background: rgba(70, 150, 220, 0.9);
+  border-color: rgba(255,255,255,0.4);
+}
+
 .mobile-only {
   display: none;
 }
@@ -258,6 +276,39 @@ button {
   padding: 12px 10px;
   border-radius: 12px;
   font-size: 15px;
+  pointer-events: auto;
+}
+
+#notificationCenter {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+}
+
+.notification {
+  background: rgba(30, 50, 70, 0.95);
+  border: 1px solid rgba(100, 200, 255, 0.6);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #e0f0ff;
+  font-size: 14px;
+  pointer-events: auto;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 720px) {
@@ -269,11 +320,6 @@ button {
     top: auto;
     bottom: 170px;
     right: 14px;
-  }
-
-  #missionPanel {
-    width: min(360px, calc(100vw - 30px));
-    top: 70px;
   }
 
   #minimapWrap {

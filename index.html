@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ghanaian Survival Town</title>
+    <title>Ghanaian Survival Town - Multiplayer</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./phone.css" />
   </head>
   <body>
     <div id="viewport"></div>
@@ -25,6 +26,7 @@
           <span class="label">Money</span>
           <strong id="moneyText">GH₵ 0</strong>
         </div>
+        <button id="phoneBtn" class="hud-button">☎️ Phone</button>
       </div>
 
       <div id="missionPanel">
@@ -41,6 +43,64 @@
 
       <div id="minimapWrap">
         <canvas id="minimap" width="180" height="180"></canvas>
+      </div>
+
+      <div id="notificationCenter">
+        <div id="messageNotification" class="notification hidden">
+          <span id="notificationText"></span>
+        </div>
+        <div id="callNotification" class="notification hidden">
+          <div id="callNotificationContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="phoneOverlay" class="overlay hidden">
+      <div id="phoneContainer" class="phone-shell">
+        <div class="phone-header">
+          <div class="phone-status-bar">
+            <span class="status-time" id="phoneTime">9:41</span>
+            <span class="status-signal">📶</span>
+          </div>
+        </div>
+
+        <div class="phone-tabs">
+          <button class="phone-tab active" data-tab="contacts">Contacts</button>
+          <button class="phone-tab" data-tab="messages">Messages</button>
+          <button class="phone-tab" data-tab="calls">Calls</button>
+        </div>
+
+        <div class="phone-content">
+          <div id="contactsTab" class="phone-panel active">
+            <div class="contacts-list" id="contactsList"></div>
+          </div>
+
+          <div id="messagesTab" class="phone-panel">
+            <div class="messages-list" id="messagesList"></div>
+          </div>
+
+          <div id="callsTab" class="phone-panel">
+            <div class="calls-list" id="callsList"></div>
+          </div>
+        </div>
+
+        <div class="phone-footer">
+          <button id="phoneCloseBtn" class="phone-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="messageThreadOverlay" class="overlay hidden">
+      <div class="message-thread-container">
+        <div class="thread-header">
+          <button id="backToMessagesBtn" class="back-btn">← Back</button>
+          <span id="threadUsername"></span>
+        </div>
+        <div class="thread-messages" id="threadMessagesView"></div>
+        <div class="thread-input">
+          <input type="text" id="messageInput" placeholder="Type a message..." />
+          <button id="sendMessageBtn">Send</button>
+        </div>
       </div>
     </div>
 
@@ -71,6 +131,8 @@
       </div>
     </div>
 
+    <script type="module" src="./network.js"></script>
+    <script type="module" src="./phone.js"></script>
     <script type="module" src="./game.js"></script>
   </body>
 </html>
