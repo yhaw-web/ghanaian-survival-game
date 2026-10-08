@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghanaian Survival Town</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="viewport"></div>
+
+    <div id="hud">
+      <div id="topBar">
+        <div class="stat-block">
+          <span class="label">Health</span>
+          <div class="bar"><div id="healthBar" class="fill health"></div></div>
+          <span id="healthText">100 / 100</span>
+        </div>
+        <div class="stat-block">
+          <span class="label">Stamina</span>
+          <div class="bar"><div id="staminaBar" class="fill stamina"></div></div>
+          <span id="staminaText">100 / 100</span>
+        </div>
+        <div class="stat-block compact">
+          <span class="label">Money</span>
+          <strong id="moneyText">GH₵ 0</strong>
+        </div>
+      </div>
+
+      <div id="missionPanel">
+        <div id="missionTitle">Mission 1</div>
+        <div id="missionText">Explore the town</div>
+        <div id="objectiveText">Objective: Reach the Market Square</div>
+        <div id="distanceText">Distance: 0m</div>
+      </div>
+
+      <div id="inventoryPanel">
+        <h3>Inventory</h3>
+        <div id="inventoryList"></div>
+      </div>
+
+      <div id="minimapWrap">
+        <canvas id="minimap" width="180" height="180"></canvas>
+      </div>
+    </div>
+
+    <div id="mobileControls" class="mobile-only">
+      <div id="joystickBase">
+        <div id="joystickKnob"></div>
+      </div>
+      <div id="actionButtons">
+        <button id="jumpBtn" class="action-btn">Jump</button>
+        <button id="attackBtn" class="action-btn">Attack</button>
+        <button id="pauseBtn" class="action-btn">Pause</button>
+      </div>
+    </div>
+
+    <div id="pauseMenu" class="overlay hidden">
+      <div class="menu-card">
+        <h2>Paused</h2>
+        <button id="resumeBtn">Resume</button>
+        <button id="restartFromPauseBtn">Restart</button>
+      </div>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay hidden">
+      <div class="menu-card">
+        <h2>Game Over</h2>
+        <p>You were overwhelmed by the town's dangers.</p>
+        <button id="restartBtn">Restart</button>
+      </div>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>
